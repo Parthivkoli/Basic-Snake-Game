@@ -1,6 +1,6 @@
 Snake Game
 
-![Snake Game](snake_game_screenshot.png)
+![Snake Game(https://github.com/Parthivkoli/Basic-Snake-Game/assets/89799632/4a7b25af-27b4-40a1-9d52-5f075cae879f)
 
 Description
 
@@ -30,7 +30,8 @@ Dependencies
 
 Screenshots
 
-![Gameplay Screenshot](gameplay_screenshot.png)
+![Gameplay Screenshot]![Gamplay](https://github.com/Parthivkoli/Basic-Snake-Game/assets/89799632/eaf762df-31e5-4917-93c5-6826b90f5fd6)
+
 
 License
 

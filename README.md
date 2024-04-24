@@ -18,7 +18,7 @@ How to Play
 
 1. Clone the repository to your local machine.
 2. Install Python and the Pygame library if not already installed.
-3. Navigate to the project directory and run the `snake_game.py` file.
+3. Navigate to the project directory and run the `Snake_game.py` file.
 4. Use the arrow keys to control the snake's movement.
 5. Eat fruits to grow longer and earn points.
 6. Avoid collisions with walls and the snake's body.
@@ -29,6 +29,15 @@ Dependencies
 - Python (>=3.6)
 - Pygame
 
+- For this project, you will need the following packages:
+
+1. `pygame`: This package is required for creating the game's graphical interface, handling user input, and managing game events.
+   
+You can install `pygame` using pip:
+
+pip install pygame
+
+in your Terminal.
 Screenshots
 
 ![Gameplay Screenshot]![Gamplay](https://github.com/Parthivkoli/Basic-Snake-Game/assets/89799632/eaf762df-31e5-4917-93c5-6826b90f5fd6)

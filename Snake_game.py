@@ -27,12 +27,14 @@ class SnakeGame:
         self.game_over = False
 
     def load_images(self):
-        self.snake_head_down_img = pygame.image.load("#Add Your file path for Snake head Image").convert_alpha()
-        self.snake_body_img = pygame.image.load("Add Your file path for Snake Body image").convert_alpha()
-        self.fruit_img = pygame.image.load("Add Your file path for Fruit/Points Image").convert_alpha()
-        self.snake_head_down_img = pygame.transform.scale(self.snake_head_down_img, (TILE_SIZE, TILE_SIZE))
+        self.snake_head_img = pygame.image.load("C:/Users/parth/Downloads/pixil-frame-0 (1).png").convert_alpha()
+        self.snake_body_img = pygame.image.load("C:/Users/parth/Downloads/pixil-frame-0 (2).png").convert_alpha()
+        self.snake_tail_img = pygame.image.load("C:/Users/parth/Downloads/pixil-frame-0 (3).png").convert_alpha()
+        self.apple_img = pygame.image.load("C:/Users/parth/Downloads/apple image.png").convert_alpha()
+        self.snake_head_img = pygame.transform.scale(self.snake_head_img, (TILE_SIZE, TILE_SIZE))
         self.snake_body_img = pygame.transform.scale(self.snake_body_img, (TILE_SIZE, TILE_SIZE))
-        self.fruit_img = pygame.transform.scale(self.fruit_img, (TILE_SIZE, TILE_SIZE))
+        self.snake_tail_img = pygame.transform.scale(self.snake_tail_img, (TILE_SIZE, TILE_SIZE))
+        self.apple_img = pygame.transform.scale(self.apple_img, (TILE_SIZE, TILE_SIZE))
 
     def generate_fruits(self):
         for _ in range(FRUIT_COUNT):
@@ -44,19 +46,20 @@ class SnakeGame:
         for i, segment in enumerate(self.snake):
             if i == 0:
                 self.draw_rotated_head(segment)
+            elif i == len(self.snake) - 1:
+                self.draw_rotated_tail(segment)
             else:
-                next_segment = self.snake[i - 1]
-                self.draw_rotated_body(segment, next_segment)
+                self.draw_rotated_body(segment, self.snake[i+1])
 
     def draw_rotated_head(self, segment):
         if self.direction == "UP":
-            rotated_image = pygame.transform.rotate(self.snake_head_down_img, 90)
+            rotated_image = pygame.transform.rotate(self.snake_head_img, 90)
         elif self.direction == "DOWN":
-            rotated_image = pygame.transform.rotate(self.snake_head_down_img, -90)
+            rotated_image = pygame.transform.rotate(self.snake_head_img, -90)
         elif self.direction == "LEFT":
-            rotated_image = pygame.transform.flip(self.snake_head_down_img, True, False)
+            rotated_image = pygame.transform.flip(self.snake_head_img, True, False)
         elif self.direction == "RIGHT":
-            rotated_image = self.snake_head_down_img
+            rotated_image = self.snake_head_img
         self.screen.blit(rotated_image, segment)
 
     def draw_rotated_body(self, segment, next_segment):
@@ -72,9 +75,22 @@ class SnakeGame:
             rotated_image = pygame.transform.rotate(self.snake_body_img, -90)
         self.screen.blit(rotated_image, segment)
 
+    def draw_rotated_tail(self, segment):
+        dx = segment[0] - self.snake[-2][0]
+        dy = segment[1] - self.snake[-2][1]
+        if dx > 0:  # moving left
+            rotated_image = pygame.transform.rotate(self.snake_tail_img, 0)
+        elif dx < 0:  # moving right
+            rotated_image = pygame.transform.rotate(self.snake_tail_img, 180)
+        elif dy > 0:  # moving down
+            rotated_image = pygame.transform.rotate(self.snake_tail_img, 90)
+        else:  # moving up
+            rotated_image = pygame.transform.rotate(self.snake_tail_img, -90)
+        self.screen.blit(rotated_image, segment)
+
     def draw_fruits(self):
         for fruit in self.fruit_positions:
-            self.screen.blit(self.fruit_img, (fruit[0], fruit[1]))
+            self.screen.blit(self.apple_img, (fruit[0], fruit[1]))
 
     def move_snake(self):
         head = self.snake[0].copy()

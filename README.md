@@ -1,6 +1,7 @@
 Snake Game
 
-![Snake Game(https://github.com/Parthivkoli/Basic-Snake-Game/assets/89799632/4a7b25af-27b4-40a1-9d52-5f075cae879f)
+![Snake game background](https://github.com/Parthivkoli/Basic-Snake-Game/assets/89799632/c77f8fc7-821c-49e3-968f-64c8e1e81997)
+
 
 Description
 

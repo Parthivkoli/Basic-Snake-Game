@@ -27,9 +27,9 @@ class SnakeGame:
         self.game_over = False
 
     def load_images(self):
-        self.snake_head_down_img = pygame.image.load("C:/Users/parth/Downloads/bf9d34177f442b3.png").convert_alpha()
-        self.snake_body_img = pygame.image.load("C:/Users/parth/Downloads/Snake body.png").convert_alpha()
-        self.fruit_img = pygame.image.load("C:/Users/parth/Downloads/sr20efd1f2a8caws3.png").convert_alpha()
+        self.snake_head_down_img = pygame.image.load("#Add Your file path for Snake head Image").convert_alpha()
+        self.snake_body_img = pygame.image.load("Add Your file path for Snake Body image").convert_alpha()
+        self.fruit_img = pygame.image.load("Add Your file path for Fruit/Points Image").convert_alpha()
         self.snake_head_down_img = pygame.transform.scale(self.snake_head_down_img, (TILE_SIZE, TILE_SIZE))
         self.snake_body_img = pygame.transform.scale(self.snake_body_img, (TILE_SIZE, TILE_SIZE))
         self.fruit_img = pygame.transform.scale(self.fruit_img, (TILE_SIZE, TILE_SIZE))
